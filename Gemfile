@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.2"
 
+gem 'active_model_serializers'
 
 gem 'mongo', "~> 2.15.0"  
 

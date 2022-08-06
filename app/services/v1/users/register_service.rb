@@ -7,8 +7,17 @@ class V1::Users::RegisterService
 
         if user.new_record?
             user.save!
+            V1::SuccessResult.new(
+                status_message: "Success create new user",
+                data: user,
+                meta: nil
+            )
         else
-            return 
+            V1::ErrorResult.new(
+                http_code: 422,
+                status_code: 422,
+                status_message: "Failed create new user",
+            )
         end
     end
 end

@@ -1,14 +1,13 @@
 class Api::V1::Users::RegisterController < ApplicationController
 
     def register
-        register_service = V1::Users::RegisterService.new
-        
+        register_service = V1::Users::RegisterService.new        
         # gue mau dapetin result
         result = register_service.register(params_user)
-        if result.nil?
-            render :status => 422
+        if result.success?
+            render_json_success(result, result.status_message, ::V1::Users::UserSerializer)
         else
-            render :status => 200
+            render_json_error result
         end
     end
 
