@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       namespace :users do
         post '/register', to: 'register#register'
       end
+      namespace :movie do
+          post '/submit', to: 'movie#submit'
+      end
     end
   end
 end

@@ -1,6 +1,6 @@
 class Core::User
     include Mongoid::Document
-    store_in client: "default", collection: "user"
+    store_in client: "default", collection: "users"
     
     field :first_name, type: String
     field :last_name, type: String
